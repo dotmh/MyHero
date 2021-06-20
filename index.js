@@ -5,8 +5,8 @@ export class BaseElement extends HTMLElement {
         this.attachShadow({mode: 'open'});
         this.me = this.shadowRoot;
 
-        this.#initialiseTemplate();
-        this.#initialiseAttributes();
+        this._initialiseTemplate();
+        this._initialiseAttributes();
     }
 
     template() {
@@ -15,17 +15,21 @@ export class BaseElement extends HTMLElement {
 
     attr(name , defaultValue) {
         if (this.hasAttribute(name)) {
-            return this.#getAttr(name);
+            return this._getAttr(name);
         } else {
             return defaultValue;
         }
     }
 
-    #setAttr(name, value) {
+/** @private */
+    _setAttr(name, value) {
+//  #setAttr(name, value) {
         this.setAttribute(name, value);
     }
 
-    #getAttr(name) {
+/** @private */
+    _getAttr(name) {
+//  #getAttr(name) {
         const attr = this.getAttribute(name);
         if (attr === 'true' || attr === 'false') {
             return attr === 'true';
@@ -36,21 +40,25 @@ export class BaseElement extends HTMLElement {
         }
     }
 
-    #initialiseTemplate() {
+/** @private */
+    _initialiseTemplate() {
+//  #initialiseTemplate() {
         const template = document.createElement('template');
         template.innerHTML = this.template();
 
         this.me.appendChild(template.content.cloneNode(true));
     }
 
-    #initialiseAttributes() {
+/** @private */
+    _initialiseAttributes() {
+//  #initialiseAttributes() {
         [...this.getAttributeNames()].forEach((attribute) => {
             const _this = this;
 
             const prop = {};
             prop[attribute] = {};
-            prop[attribute].set = (value) => _this.#setAttr(attribute, value);
-            prop[attribute].get = () => _this.#getAttr(attribute);
+            prop[attribute].set = (value) => _this._setAttr(attribute, value);
+            prop[attribute].get = () => _this._getAttr(attribute);
 
             Object.defineProperties(this, prop);
         });
