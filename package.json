@@ -1,0 +1,27 @@
+{
+  "name": "@dotmh/myhero",
+  "version": "0.1.0",
+  "description": "A toolkit for making web components",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dotmh/MyHero.git"
+  },
+  "keywords": [
+    "WebCompontents",
+    "compontents",
+    "toolkit",
+    "myhero",
+    "hero",
+    "dotmh"
+  ],
+  "author": "Martin Haynes <oss@dotmh.io>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/dotmh/MyHero/issues"
+  },
+  "homepage": "https://github.com/dotmh/MyHero#readme"
+}
