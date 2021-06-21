@@ -1,12 +1,13 @@
 {
   "name": "@dotmh/myhero",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A toolkit for making web components",
   "main": "index.js",
   "module": "./index.js",
   "exports": {
     ".": "./index.js"
   },
+  "types": "./index.d.ts",
   "scripts": {
     "test": "jest"
   },
